@@ -1,0 +1,53 @@
+<html class="mdc-typography">
+  <head>
+    <title>Waddeeny Project</title>
+    <link rel="stylesheet"href="node_modules/material-components-web/dist/material-components-web.css">
+    <script src="node_modules/material-components-web/dist/material-components-web.js">mdc.autoInit()</script>
+      <script src="js/jquery-3.2.1.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+      <script>
+      var config = {
+      apiKey: "AIzaSyCEMK-eaZdGpWfn7FO2FBq_7OShiN5EcUg",
+      authDomain: "projectwadeeny.firebaseapp.com",
+      databaseURL: "https://projectwadeeny.firebaseio.com",
+      projectId: "projectwadeeny",
+      storageBucket: "projectwadeeny.appspot.com",
+      messagingSenderId: "1072373959063"
+      };
+      firebase.initializeApp(config);
+
+      </script>
+  </head>
+<body>
+
+<h1> Enter Buss Number </h1>
+<br>
+<div class="mdc-textfield">
+  <input type="text" id="mTextfield" class="mdc-textfield__input">
+  <label class="mdc-textfield__label" for="my-textfield">Enter Data</label>
+  <div class="mdc-textfield__bottom-line"></div>
+</div>
+
+<button class="mdc-button mdc-button--raised" id="btnUpload" >
+    Upload
+</button>
+
+</body>
+<script>
+const btn = document.querySelector('#btnUpload');
+const txtfield = document.querySelector('#mTextfield');
+var database = firebase.database();
+
+btn.addEventListener('click',function(){
+
+ console.log("Debug : " +txtfield.value );
+ firebase.database().ref('17').set({
+    startingPoint:'maadi',
+    endingPoint:'giza',
+    path:['a','b','c','d']
+
+  })
+
+})
+</script>
+</html>
